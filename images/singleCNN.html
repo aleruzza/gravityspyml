@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://alexlenail.me/NN-SVG/LeNet.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="./singleCNN_files/analytics.js"></script><script async="" src="./singleCNN_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-119008715-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="stylesheet" href="./singleCNN_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="./singleCNN_files/font-awesome.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        * { font-weight: 100; }
+        h1 { font-weight: 100; }
+        #graph-container {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: fixed;
+        }
+
+        .nn-picker {
+            width: 410px;
+            margin: 30px;
+            z-index: 1000;
+        }
+
+        [data-toggle="collapse"] .fa:before {
+            font-size: 2rem;
+            color: black;
+            content: "\f106";
+            position: relative;
+            top: 5px;
+        }
+        .fa {
+          transition: 0.3s transform ease-in-out;
+        }
+        .collapsed .fa {
+          transform: rotate(-180deg);
+        }
+        .tab-content {
+            padding: 20px;
+        }
+        input[type="range"] {
+            margin-left: 10px;
+        }
+        #count {
+            position: fixed;
+            bottom: 0;
+            right: 1rem;
+            opacity: 0.4;
+            font-weight: 100;
+        }
+        .text {
+            font-weight: 300;
+        }
+    </style>
+
+    <title>NN SVG</title>
+
+</head>
+<body>
+
+
+    <div id="graph-container"><svg xmlns="http://www.w3.org/2000/svg" width="2880" height="1387" style="cursor: move;"><g transform="translate(148.16925880034034,-231.31636490858114) scale(1.0762401247837974)"><rect class="rect" id="0_0" width="71" height="60" x="509" y="650" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="0_1" width="71" height="60" x="517" y="658" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="0_2" width="71" height="60" x="525" y="666" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_0" width="71" height="60" x="628" y="630" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_1" width="71" height="60" x="636" y="638" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_2" width="71" height="60" x="644" y="646" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_3" width="71" height="60" x="652" y="654" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_4" width="71" height="60" x="660" y="662" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_5" width="71" height="60" x="668" y="670" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_6" width="71" height="60" x="676" y="678" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="1_7" width="71" height="60" x="684" y="686" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_0" width="36" height="30" x="765" y="615.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_1" width="36" height="30" x="773" y="623.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_2" width="36" height="30" x="781" y="631.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_3" width="36" height="30" x="789" y="639.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_4" width="36" height="30" x="797" y="647.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_5" width="36" height="30" x="805" y="655.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_6" width="36" height="30" x="813" y="663.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_7" width="36" height="30" x="821" y="671.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_8" width="36" height="30" x="829" y="679.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_9" width="36" height="30" x="837" y="687.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_10" width="36" height="30" x="845" y="695.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_11" width="36" height="30" x="853" y="703.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_12" width="36" height="30" x="861" y="711.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_13" width="36" height="30" x="869" y="719.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_14" width="36" height="30" x="877" y="727.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="2_15" width="36" height="30" x="885" y="735.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_0" width="36" height="30" x="901" y="615.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_1" width="36" height="30" x="909" y="623.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_2" width="36" height="30" x="917" y="631.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_3" width="36" height="30" x="925" y="639.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_4" width="36" height="30" x="933" y="647.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_5" width="36" height="30" x="941" y="655.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_6" width="36" height="30" x="949" y="663.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_7" width="36" height="30" x="957" y="671.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_8" width="36" height="30" x="965" y="679.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_9" width="36" height="30" x="973" y="687.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_10" width="36" height="30" x="981" y="695.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_11" width="36" height="30" x="989" y="703.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_12" width="36" height="30" x="997" y="711.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_13" width="36" height="30" x="1005" y="719.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_14" width="36" height="30" x="1013" y="727.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="3_15" width="36" height="30" x="1021" y="735.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_0" width="18" height="15" x="1037" y="560.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_1" width="18" height="15" x="1045" y="568.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_2" width="18" height="15" x="1053" y="576.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_3" width="18" height="15" x="1061" y="584.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_4" width="18" height="15" x="1069" y="592.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_5" width="18" height="15" x="1077" y="600.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_6" width="18" height="15" x="1085" y="608.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_7" width="18" height="15" x="1093" y="616.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_8" width="18" height="15" x="1101" y="624.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_9" width="18" height="15" x="1109" y="632.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_10" width="18" height="15" x="1117" y="640.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_11" width="18" height="15" x="1125" y="648.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_12" width="18" height="15" x="1133" y="656.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_13" width="18" height="15" x="1141" y="664.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_14" width="18" height="15" x="1149" y="672.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_15" width="18" height="15" x="1157" y="680.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_16" width="18" height="15" x="1165" y="688.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_17" width="18" height="15" x="1173" y="696.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_18" width="18" height="15" x="1181" y="704.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_19" width="18" height="15" x="1189" y="712.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_20" width="18" height="15" x="1197" y="720.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_21" width="18" height="15" x="1205" y="728.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_22" width="18" height="15" x="1213" y="736.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_23" width="18" height="15" x="1221" y="744.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_24" width="18" height="15" x="1229" y="752.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_25" width="18" height="15" x="1237" y="760.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_26" width="18" height="15" x="1245" y="768.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_27" width="18" height="15" x="1253" y="776.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_28" width="18" height="15" x="1261" y="784.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_29" width="18" height="15" x="1269" y="792.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_30" width="18" height="15" x="1277" y="800.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="4_31" width="18" height="15" x="1285" y="808.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_0" width="18" height="15" x="1212" y="560.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_1" width="18" height="15" x="1220" y="568.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_2" width="18" height="15" x="1228" y="576.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_3" width="18" height="15" x="1236" y="584.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_4" width="18" height="15" x="1244" y="592.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_5" width="18" height="15" x="1252" y="600.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_6" width="18" height="15" x="1260" y="608.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_7" width="18" height="15" x="1268" y="616.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_8" width="18" height="15" x="1276" y="624.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_9" width="18" height="15" x="1284" y="632.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_10" width="18" height="15" x="1292" y="640.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_11" width="18" height="15" x="1300" y="648.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_12" width="18" height="15" x="1308" y="656.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_13" width="18" height="15" x="1316" y="664.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_14" width="18" height="15" x="1324" y="672.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_15" width="18" height="15" x="1332" y="680.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_16" width="18" height="15" x="1340" y="688.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_17" width="18" height="15" x="1348" y="696.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_18" width="18" height="15" x="1356" y="704.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_19" width="18" height="15" x="1364" y="712.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_20" width="18" height="15" x="1372" y="720.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_21" width="18" height="15" x="1380" y="728.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_22" width="18" height="15" x="1388" y="736.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_23" width="18" height="15" x="1396" y="744.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_24" width="18" height="15" x="1404" y="752.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_25" width="18" height="15" x="1412" y="760.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_26" width="18" height="15" x="1420" y="768.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_27" width="18" height="15" x="1428" y="776.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_28" width="18" height="15" x="1436" y="784.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_29" width="18" height="15" x="1444" y="792.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_30" width="18" height="15" x="1452" y="800.5" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="5_31" width="18" height="15" x="1460" y="808.5" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_0" width="9" height="8" x="1418" y="565" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_1" width="9" height="8" x="1426" y="573" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_2" width="9" height="8" x="1434" y="581" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_3" width="9" height="8" x="1442" y="589" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_4" width="9" height="8" x="1450" y="597" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_5" width="9" height="8" x="1458" y="605" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_6" width="9" height="8" x="1466" y="613" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_7" width="9" height="8" x="1474" y="621" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_8" width="9" height="8" x="1482" y="629" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_9" width="9" height="8" x="1490" y="637" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_10" width="9" height="8" x="1498" y="645" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_11" width="9" height="8" x="1506" y="653" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_12" width="9" height="8" x="1514" y="661" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_13" width="9" height="8" x="1522" y="669" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_14" width="9" height="8" x="1530" y="677" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_15" width="9" height="8" x="1538" y="685" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_16" width="9" height="8" x="1546" y="693" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_17" width="9" height="8" x="1554" y="701" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_18" width="9" height="8" x="1562" y="709" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_19" width="9" height="8" x="1570" y="717" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_20" width="9" height="8" x="1578" y="725" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_21" width="9" height="8" x="1586" y="733" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_22" width="9" height="8" x="1594" y="741" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_23" width="9" height="8" x="1602" y="749" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_24" width="9" height="8" x="1610" y="757" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_25" width="9" height="8" x="1618" y="765" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_26" width="9" height="8" x="1626" y="773" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_27" width="9" height="8" x="1634" y="781" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_28" width="9" height="8" x="1642" y="789" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_29" width="9" height="8" x="1650" y="797" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_30" width="9" height="8" x="1658" y="805" style="fill: rgb(160, 160, 160); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="rect" id="6_31" width="9" height="8" x="1666" y="813" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></rect><rect class="conv" id="conv_0" width="3" height="3" x="558.7503291649507" y="677.4984553472111" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><rect class="conv" id="conv_1" width="2" height="2" x="723.605273192598" y="723.2952579586647" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><rect class="conv" id="conv_2" width="3" height="3" x="895.0039353284451" y="745.4704087939037" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><rect class="conv" id="conv_3" width="2" height="2" x="1047.6843327618349" y="752.9780373257798" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><rect class="conv" id="conv_4" width="3" height="3" x="1295.0643746229816" y="818.171007089036" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><rect class="conv" id="conv_5" width="2" height="2" x="1469.26301239773" y="819.2659505267933" style="fill-opacity: 0; stroke: black; stroke-width: 1; stroke-opacity: 0.8;"></rect><line class="link" id="conv_0" x1="561.7503291649507" y1="680.4984553472111" x2="719.2393142751691" y2="698.1036372075907" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_0" x1="561.7503291649507" y1="677.4984553472111" x2="719.2393142751691" y2="698.1036372075907" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_1" x1="725.605273192598" y1="725.2952579586647" x2="905.663620796138" y2="754.7906506682748" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_1" x1="725.605273192598" y1="723.2952579586647" x2="905.663620796138" y2="754.7906506682748" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_2" x1="898.0039353284451" y1="748.4704087939037" x2="1031.9133839946674" y2="746.5782319932264" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_2" x1="898.0039353284451" y1="745.4704087939037" x2="1031.9133839946674" y2="746.5782319932264" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_3" x1="1049.6843327618349" y1="754.9780373257798" x2="1299.126999697442" y2="817.8632342816677" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_3" x1="1049.6843327618349" y1="752.9780373257798" x2="1299.126999697442" y2="817.8632342816677" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_4" x1="1298.0643746229816" y1="821.171007089036" x2="1472.077249547578" y2="820.5887588612952" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_4" x1="1298.0643746229816" y1="818.171007089036" x2="1472.077249547578" y2="820.5887588612952" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_5" x1="1471.26301239773" y1="821.2659505267933" x2="1671.210444473723" y2="819.6252003241805" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="link" id="conv_5" x1="1471.26301239773" y1="819.2659505267933" x2="1671.210444473723" y2="819.6252003241805" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><polygon class="poly" id="fc_0" points="1687,648.2451660040609 1697,648.2451660040609 1787.5096679918781,738.754833995939 1777.5096679918781,738.754833995939" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></polygon><polygon class="poly" id="fc_1" points="1789.5096679918781,670.8725830020305 1799.5096679918781,670.8725830020305 1844.764501987817,716.1274169979696 1834.764501987817,716.1274169979696" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></polygon><polygon class="poly" id="fc_2" points="1846.764501987817,685.721825406948 1856.764501987817,685.721825406948 1872.320851173921,701.2781745930521 1862.320851173921,701.2781745930521" style="fill: rgb(224, 224, 224); stroke: black; stroke-width: 1; opacity: 0.8;"></polygon><line class="line" id="fc_0" x1="1675" y1="822" x2="1777.5096679918781" y2="738.7548339959391" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="line" id="fc_0" x1="1427" y1="565" x2="1687" y2="648.2451660040609" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="line" id="fc_1" x1="1787.5096679918781" y1="738.7548339959391" x2="1834.764501987817" y2="716.1274169979695" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="line" id="fc_1" x1="1697" y1="648.2451660040609" x2="1789.5096679918781" y2="670.8725830020305" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="line" id="fc_2" x1="1844.764501987817" y1="716.1274169979695" x2="1862.320851173921" y2="701.278174593052" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><line class="line" id="fc_2" x1="1799.5096679918781" y1="670.8725830020305" x2="1846.764501987817" y2="685.721825406948" style="stroke: black; stroke-width: 0.5; stroke-opacity: 0.8;"></line><text class="text" dy=".35em" font-family="sans-serif" x="628.75" y="916" style="font-size: 16px;">Convolution</text><text class="text" dy=".35em" font-family="sans-serif" x="784" y="916" style="font-size: 16px;">Max-Pool</text><text class="text" dy=".35em" font-family="sans-serif" x="935" y="916" style="font-size: 16px;">Convolution</text><text class="text" dy=".35em" font-family="sans-serif" x="1098.5" y="916" style="font-size: 16px;">Max pool</text><text class="text" dy=".35em" font-family="sans-serif" x="1309" y="916" style="font-size: 16px;">Convolution</text><text class="text" dy=".35em" font-family="sans-serif" x="1497.25" y="916" style="font-size: 16px;">Max-pool</text><text class="text" dy=".35em" font-family="sans-serif" x="1688.6274169979695" y="916" style="font-size: 16px;">Flatten</text><text class="info" dy="-0.3em" font-family="sans-serif" x="509" y="635" style="font-size: 16px;">3@60x71</text><text class="info" dy="-0.3em" font-family="sans-serif" x="628" y="615" style="font-size: 16px;">8@60x71</text><text class="info" dy="-0.3em" font-family="sans-serif" x="765" y="600.5" style="font-size: 16px;">16@30x36</text><text class="info" dy="-0.3em" font-family="sans-serif" x="901" y="600.5" style="font-size: 16px;">16@30x36</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1037" y="545.5" style="font-size: 16px;">32@15x18</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1212" y="545.5" style="font-size: 16px;">32@15x18</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1418" y="550" style="font-size: 16px;">32@8x9</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1687" y="633.2451660040609" style="font-size: 16px;">1x128</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1789.5096679918781" y="655.8725830020305" style="font-size: 16px;">1x64</text><text class="info" dy="-0.3em" font-family="sans-serif" x="1846.764501987817" y="670.721825406948" style="font-size: 16px;">1x22</text></g></svg></div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="nn-picker">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="pull-right" data-toggle="collapse" href="http://alexlenail.me/NN-SVG/LeNet.html#collapsable" role="button"><i class="fa"></i></a>
+                        <h1>NN-SVG</h1>
+                        <p>Publication-ready NN-architecture schematics. <a id="download" href="http://alexlenail.me/NN-SVG/LeNet.html#">Download SVG</a></p>
+
+                        <nav>
+                            <div class="nav nav-tabs card-header-tabs" role="tablist">
+                                <a class="nav-item nav-link" href="http://alexlenail.me/NN-SVG/index.html">FCNN style</a>
+                                <a class="nav-item nav-link active">LeNet style</a>
+                                <a class="nav-item nav-link" href="http://alexlenail.me/NN-SVG/AlexNet.html">AlexNet style</a>
+                            </div>
+                        </nav>
+
+                    </div>
+                    <div class="tab-content collapse show" id="collapsable">
+
+                        <div class="tab-pane fade show active" id="LeNet" role="tabpanel">
+                            <h4>Style:</h4>
+
+                            <div>
+                                <input type="color" value="#e0e0e0" id="color1">
+                                <label for="color1">Color 1</label>
+                            </div>
+                            <div>
+                                <input type="color" value="#a0a0a0" id="color2">
+                                <label for="color2">Color 2</label>
+                            </div>
+                            <div>
+                                <label for="rectOpacity">Filter Opacity</label>
+                                <input type="range" id="rectOpacity" name="" min="0.2" max="1" step="0.01" value="0.9" style="position: relative; top: 3px;">
+                            </div>
+                            <div>
+                                <label for="borderWidth">Border Width</label>
+                                <input type="range" id="borderWidth" name="" min="0.01" max="3" step="0.01" value="1" style="position: relative; top: 3px;">
+                            </div>
+                            <div>
+                                <label for="betweenSquares">Spacing Between Filters</label>
+                                <input type="range" id="betweenSquares" name="" min="1" max="40" step="1" value="10" style="position: relative; top: 3px;">
+                            </div>
+                            <div>
+                                <input type="checkbox" id="showLabels" name="showLabels" value="showLabels" checked="">
+                                <label for="showLabels">Show Layer Labels</label>
+                            </div>
+
+                            <hr>
+                            <h4>Architecture:</h4>
+                            <div id="architecture">
+                                <p>Depth | Height | Width | filter Height | filter Width</p>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1" value="8">
+                                        <input type="number" class="form-control" name="squareHeight" step="1" value="128">
+                                        <input type="number" class="form-control" name="squareWidth" step="1" value="128">
+                                        <input type="number" class="form-control" name="filterHeight" step="1" value="8">
+                                        <input type="number" class="form-control" name="filterWidth" step="1" value="8">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                        <input type="text" class="form-control" name="Op" step="1" value="Max-Pool">
+                                        <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="40" style="margin-left: 10px !important;">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1" value="8">
+                                        <input type="number" class="form-control" name="squareHeight" step="1" value="64">
+                                        <input type="number" class="form-control" name="squareWidth" step="1" value="64">
+                                        <input type="number" class="form-control" name="filterHeight" step="1" value="16">
+                                        <input type="number" class="form-control" name="filterWidth" step="1" value="16">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="Convolution">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="10" style="margin-left: 10px !important;">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1" value="24">
+                                        <input type="number" class="form-control" name="squareHeight" step="1" value="48">
+                                        <input type="number" class="form-control" name="squareWidth" step="1" value="48">
+                                        <input type="number" class="form-control" name="filterHeight" step="1" value="8">
+                                        <input type="number" class="form-control" name="filterWidth" step="1" value="8">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="Max-Pool">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="-20" style="margin-left: 10px !important;">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1" value="24">
+                                        <input type="number" class="form-control" name="squareHeight" step="1" value="16">
+                                        <input type="number" class="form-control" name="squareWidth" step="1" value="16">
+                                        <input type="number" class="form-control" name="filterHeight" step="1" value="8">
+                                        <input type="number" class="form-control" name="filterWidth" step="1" value="8">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="Dense">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="-20" style="margin-left: 10px !important;">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn input-group-prepend btn-remove btn-secondary"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1">
+                                        <input type="number" class="form-control" name="squareHeight" step="1">
+                                        <input type="number" class="form-control" name="squareWidth" step="1">
+                                        <input type="number" class="form-control" name="filterHeight" step="1">
+                                        <input type="number" class="form-control" name="filterWidth" step="1">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="10" style="margin-left: 10px !important;">
+                                    </div>
+                                </div>
+
+                            <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn input-group-prepend btn-remove btn-secondary"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1">
+                                        <input type="number" class="form-control" name="squareHeight" step="1">
+                                        <input type="number" class="form-control" name="squareWidth" step="1">
+                                        <input type="number" class="form-control" name="filterHeight" step="1">
+                                        <input type="number" class="form-control" name="filterWidth" step="1">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="10" style="margin-left: 10px !important;">
+                                    </div>
+                                </div><div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                        <button class="btn btn-primary btn-add input-group-prepend"><span class="fa fa-plus"></span></button>
+                                        <input type="number" class="form-control" name="numberOfSquares" step="1">
+                                        <input type="number" class="form-control" name="squareHeight" step="1">
+                                        <input type="number" class="form-control" name="squareWidth" step="1">
+                                        <input type="number" class="form-control" name="filterHeight" step="1">
+                                        <input type="number" class="form-control" name="filterWidth" step="1">
+                                    </div>
+                                    <div class="input-group mb-2 mr-sm-2 col-12">
+                                      <label for="Op" style="width: 36px;padding: 4px;">Op: </label>
+                                      <input type="text" class="form-control" name="Op" step="1" value="">
+                                      <input type="range" class="form-control" name="spacing" min="-100" max="100" step="1" value="10" style="margin-left: 10px !important;">
+                                    </div>
+                                </div></div>
+
+                            <hr>
+                            <div id="architecture2">
+                                <p>Vector Length</p>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-5">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="vectorLength" step="1" value="256">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-5">
+                                        <button class="btn btn-secondary btn-remove input-group-prepend"><span class="fa fa-minus"></span></button>
+                                        <input type="number" class="form-control" name="vectorLength" step="1" value="128">
+                                    </div>
+                                </div>
+                                <div class="row entry">
+                                    <div class="input-group mb-2 mr-sm-2 col-5">
+                                        <button class="btn btn-primary btn-add input-group-prepend"><span class="fa fa-plus"></span></button>
+                                        <input type="number" class="form-control" name="vectorLength" step="1">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="count"><a style="font-size: 1rem" href="http://alexlenail.me/NN-SVG/about.html">About</a></div>
+
+
+    <script src="./singleCNN_files/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./singleCNN_files/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./singleCNN_files/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="./singleCNN_files/d3.v5.min.js"></script>
+    <script type="text/javascript" src="./singleCNN_files/underscore-umd-min.js"></script>
+
+    <script type="text/javascript" src="./singleCNN_files/util.js"></script>
+    <script type="text/javascript" src="./singleCNN_files/LeNet.js"></script>
+
+    <script type="text/javascript">
+
+lenet = LeNet();
+
+function restart() {
+
+    architecture = $('#architecture').find('.entry').map((i,el) =>
+        _.object(['numberOfSquares','squareHeight','squareWidth','filterHeight','filterWidth', 'op', 'layer'],
+                 $(el).find('input[type="number"]').map((j,input) => parseFloat($(input).val())).get().concat([$(el).find('input[type="text"]').val(), i]))
+        ).get()
+         .filter(layer => Object.values(layer).every(val => !_.isNaN(val)));
+
+    betweenLayers = $('#architecture').find('input[type="range"]').map((i,el) => $(el).val()).get().filter(input => $.isNumeric(input)).map(s => parseInt(s)); betweenLayers.pop();
+
+    architecture2 = $('#architecture2').find('input').map((i,el) => $(el).val()).get().filter(input => $.isNumeric(input)).map(s => parseInt(s));
+
+    lenet.redraw({'architecture_':architecture, 'architecture2_':architecture2});
+    lenet.redistribute({'betweenLayers_':betweenLayers});
+
+}
+
+restart();
+
+/////////////////////////////////////////////////////////////////////////////
+                ///////    Select Styling    ///////
+/////////////////////////////////////////////////////////////////////////////
+
+$("#color1").change(         function () { lenet.style({'color1_': this.value}); });
+$("#color2").change(         function () { lenet.style({'color2_': this.value}); });
+$("#borderWidth").change(    function () { lenet.style({'borderWidth_': parseFloat(this.value)}); });
+$("#rectOpacity").change(    function () { lenet.style({'rectOpacity_': parseFloat(this.value)}); });
+$("#betweenSquares").change( function () { lenet.redistribute({'betweenSquares_': parseFloat(this.value)}); });
+$("#showLabels").change(     function () { lenet.style({'showLabels_': this.checked}); });
+
+$("input[name='spacing']").change(function() {
+    betweenLayers = $('#architecture').find('input[type="range"]').map((i,el) => $(el).val()).get().filter(input => $.isNumeric(input)).map(s => parseInt(s)); betweenLayers.pop();
+    lenet.redistribute({'betweenLayers_':betweenLayers});
+});
+
+
+/////////////////////////////////////////////////////////////////////////////
+                 ///////    Select Architecture    ///////
+/////////////////////////////////////////////////////////////////////////////
+
+
+$(document).on('click', '#architecture .btn-add', function(e) {
+    e.preventDefault();
+
+    var controlForm = $('#architecture');
+    var currentEntry = $(this).parents('.entry:first');
+    var newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+    newEntry.find('input').val('');
+    controlForm.find('.entry:not(:last) .btn-add')
+        .removeClass('btn-add').addClass('btn-remove')
+        .removeClass('btn-primary').addClass('btn-secondary')
+        .html('<span class="fa fa-minus"></span>');
+
+    restart();
+
+});
+
+$(document).on('click', '#architecture .btn-remove', function(e) {
+    e.preventDefault();
+
+    $(this).parents('.entry:first').remove();
+
+    restart();
+
+    return false;
+
+});
+
+$(document).on('click', '#architecture2 .btn-add', function(e) {
+    e.preventDefault();
+
+    var controlForm = $('#architecture2');
+    var currentEntry = $(this).parents('.entry:first');
+    var newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+    newEntry.find('input').val('');
+    controlForm.find('.entry:not(:last) .btn-add')
+        .removeClass('btn-add').addClass('btn-remove')
+        .removeClass('btn-primary').addClass('btn-secondary')
+        .html('<span class="fa fa-minus"></span>');
+
+    restart();
+
+});
+
+$(document).on('click', '#architecture2 .btn-remove', function(e) {
+    e.preventDefault();
+
+    $(this).parents('.entry:first').remove();
+
+    restart();
+
+    return false;
+
+});
+
+$(document).on('change', 'input[type="number"]', function(e) {
+    e.preventDefault();
+
+    restart();  // TODO only fire if the whole row is filled.
+
+});
+
+$(document).on('change', 'input[type="text"]', function(e) {
+    e.preventDefault();
+
+    restart();
+});
+
+
+d3.select("#download").on("click", function() {
+    // ga('send', 'event', 'downloadSVG', 'LeNet');
+
+    d3.select(this)
+      .attr("href", 'data:application/octet-stream;base64,' + btoa(unescape(encodeURIComponent(d3.select("#graph-container").html()))))
+      .attr("download", "nn.svg")
+});
+
+    </script>
+
+
+
+
+</div></body></html>
